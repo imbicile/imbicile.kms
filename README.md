@@ -6,6 +6,10 @@ KMS Server
 
 https://github.com/Wind4/vlmcsd
 
+## Binary
+
+Replace empty binary `/files`
+
 ## Windows Activation
 
 ```
