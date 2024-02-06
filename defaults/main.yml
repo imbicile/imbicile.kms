@@ -1,0 +1,7 @@
+---
+# defaults file for roles/imbicile.kms
+
+kms_user: "vlmcsd"
+kms_group: "vlmcsd"
+kms_address: "0.0.0.0"
+kms_port: "1688"

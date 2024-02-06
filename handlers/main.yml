@@ -1,0 +1,8 @@
+---
+# handlers file for roles/imbicile.kms
+- name: Restart vlmcsd
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+    name: vlmcsd.service
+    state: restarted

@@ -1,0 +1,9 @@
+---
+- name: Create service
+  ansible.builtin.template:
+    dest: "/etc/systemd/system/"
+    src: "vlmcsd.service"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify: Restart vlmcsd

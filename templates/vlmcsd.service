@@ -1,0 +1,19 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=KMS
+After=network-online.target
+
+[Service]
+Type=simple
+User={{ kms_user }}
+Group={{ kms_group }}
+
+ExecStart=/usr/local/bin/vlmcsd -L {{ kms_address }}:{{ kms_port }} -D -d -t 3 -e -v
+
+SyslogIdentifier=vlmcsd
+Restart=always
+RestartSec=15s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,30 @@
+---
+- name: Create vlmcs system group
+  group:
+    name: "{{ kms_group }}"
+    system: true
+    state: present
+
+- name: Create vlmcs system user
+  ansible.builtin.user:
+    name: "{{ kms_user }}"
+    system: true
+    shell: "/usr/sbin/nologin"
+    group: "{{ kms_group }}"
+    createhome: false
+
+- name: Create vlmcs
+  ansible.builtin.copy:
+    src: "vlmcs"
+    dest: "/usr/local/bin/vlmcs"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+
+- name: Create vlmcsd
+  ansible.builtin.copy:
+    src: "vlmcsd"
+    dest: "/usr/local/bin/vlmcsd"
+    owner: "root"
+    group: "root"
+    mode: "0755"
